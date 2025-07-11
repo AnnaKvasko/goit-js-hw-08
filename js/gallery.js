@@ -92,7 +92,7 @@ const images = [
     console.log('Велике зображення:', largeImageURL);
   
     const instance = basicLightbox.create(`
-      <img src="" width="800" height="600">
+      <img class="modal-img" src="" width="800" height="600">
     `);
   
     instance.show();
