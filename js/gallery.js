@@ -63,49 +63,44 @@ const images = [
       description: 'Lighthouse Coast Sea',
     },
   ];
+  const galleryContainer = document.querySelector('.gallery');
 
-  const galleryContainer = document.querySelector(`.gallery`);
-
-  const galleryMarkup = images.map(({preview, original, description}) => {return` <li class="gallery-item">
-  <a class="gallery-link" href="${original}">
-    <img
-      class="gallery-image"
-      src="${preview}"
-      data-source="${original}"
-      alt="${description}"
-    />
-  </a>
-</li>
-`;}).join('');
-
-galleryContainer.innerHTML = galleryMarkup;
-
-galleryContainer.addEventListener('click', event => {
+  // Генеруємо розмітку галереї
+  const galleryMarkup = images.map(({ preview, original, description }) => {
+    return `
+      <li class="gallery-item">
+        <a class="gallery-link" href="${original}">
+          <img
+            class="gallery-image"
+            src="${preview}"
+            data-source="${original}"
+            alt="${description}"
+          />
+        </a>
+      </li>
+    `;
+  }).join('');
+  
+  galleryContainer.innerHTML = galleryMarkup;
+  
+ 
+  galleryContainer.addEventListener('click', event => {
     event.preventDefault();
+  
     if (event.target.nodeName !== 'IMG') return;
-
+  
     const largeImageURL = event.target.dataset.source;
-  console.log('Open large image:', largeImageURL);
-});
-
-const galleryContainer = document.querySelector('.gallery');
-
-galleryContainer.addEventListener('click', event => {
-  event.preventDefault();
-  const isImage = event.target.nodeName === 'IMG';
-  if (!isImage) return;
-  const largeImageURL = event.target.dataset.source;
-  console.log('Велике зображення:', largeImageURL);
-
-  const instance = basicLightbox.create(`
-    <img src="${largeImageURL}" width="800" height="600">
-  `);
-
-  instance.show();
-
-  const modalImage = instance.element().querySelector('img');
-  modalImage.src = largeImageURL;
-});
-
+    console.log('Велике зображення:', largeImageURL);
+  
+    const instance = basicLightbox.create(`
+      <img src="" width="800" height="600">
+    `);
+  
+    instance.show();
+  
+    
+    const modalImage = instance.element().querySelector('img');
+    modalImage.src = largeImageURL;
+  });
 
 
