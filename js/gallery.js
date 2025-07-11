@@ -87,3 +87,25 @@ galleryContainer.addEventListener('click', event => {
     const largeImageURL = event.target.dataset.source;
   console.log('Open large image:', largeImageURL);
 });
+
+const galleryContainer = document.querySelector('.gallery');
+
+galleryContainer.addEventListener('click', event => {
+  event.preventDefault();
+  const isImage = event.target.nodeName === 'IMG';
+  if (!isImage) return;
+  const largeImageURL = event.target.dataset.source;
+  console.log('Велике зображення:', largeImageURL);
+
+  const instance = basicLightbox.create(`
+    <img src="${largeImageURL}" width="800" height="600">
+  `);
+
+  instance.show();
+
+  const modalImage = instance.element().querySelector('img');
+  modalImage.src = largeImageURL;
+});
+
+
+
