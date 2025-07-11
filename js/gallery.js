@@ -65,7 +65,6 @@ const images = [
   ];
   const galleryContainer = document.querySelector('.gallery');
 
-  // Генеруємо розмітку галереї
   const galleryMarkup = images.map(({ preview, original, description }) => {
     return `
       <li class="gallery-item">
