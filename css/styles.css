@@ -1,3 +1,4 @@
+
 .gallery {
 display: flex;
 flex-wrap: wrap;
@@ -13,7 +14,8 @@ list-style: none;
   
 .gallery-item {
 box-sizing: border-box;
-width: calc((100% - 48px) / 3);
+/* width: calc((100% - 48px) / 3); */
+width: 360px;
   }
   
   .gallery-image {
