@@ -26,10 +26,20 @@ width: 360px;
   }
   
   .basicLightbox {
-background: rgba(46, 47, 66, 0.8);
+background-color: rgba(46, 47, 66, 0.8);
   }
 
   .modal-img {
 width: 1112px;
 height: 640px;
+  }
+
+  .gallery-link {
+    display: block;
+    text-decoration: none;
+  }
+
+  .gallery-item {
+    margin: 0;
+    padding: 0;
   }
